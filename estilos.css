@@ -1,0 +1,70 @@
+.inputs_recibo {
+  background-color: transparent;
+  border-color: transparent;
+  width: 150px;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  justify-items: center;
+  margin-left: 10px;
+  height: 30px; /* Ajusta según tu diseño */
+  padding: 5px;
+  line-height: 1;
+  box-sizing: border-box;
+  vertical-align: middle;
+  align-items: center;
+  text-align: center;
+}
+
+.inputs_recibo1 {
+  background-color: transparent;
+  border-color: transparent;
+  width: 70px;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  justify-items: center;
+  margin-left: 10px;
+  height: 30px; /* Ajusta según tu diseño */
+  padding: 5px;
+  line-height: 1;
+  box-sizing: border-box;
+  vertical-align: middle;
+  align-items: center;
+  text-align: center;
+}
+
+.inputs_recibo_usuario {
+  background-color: transparent;
+  border: 2px solid black;
+  text-align: center;
+  width: 170px;
+  height: 30px;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  justify-items: center;
+  margin-left: 10px;
+  line-height: 1;
+  box-sizing: border-box;
+  vertical-align: middle;
+  align-items: center;
+  text-align: center;
+}
+
+.inputs_recibo_usuario_datos {
+  background-color: transparent;
+  border: 2px solid black;
+  text-align: justify;
+  width: 373px;
+  height: 30px;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  justify-items: justify;
+  margin-left: 10px;
+  line-height: 1;
+  box-sizing: border-box;
+  vertical-align: middle;
+  align-items: justify;
+}

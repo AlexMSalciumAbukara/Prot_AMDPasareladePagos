@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AMD duplicado en PDF</title>
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <body>
+    <div
+      id="capture"
+      style="
+        margin-top: 100px;
+        margin-left: 350px;
+        margin-right: 350px;
+        margin-bottom: 100px;
+        align-self: center;
+        position: relative;
+      ">
+      <img
+        src="assets/images/front.jpg"
+        alt="recibo"
+        id="recibo-img"
+        style="width: 950px; height: 1450px" />
+
+      <div style="position: absolute; top: 180px; left: 385px">
+        <label class="inputs_recibo" id="numrevision_input">Num recibo</label>
+      </div>
+      <div style="position: absolute; top: 205px; left: 385px">
+        <label
+          class="inputs_recibo"
+          id="revision_input"
+          style="font-weight: bold"
+          >11/NOV/19</label
+        >
+      </div>
+      <div style="position: absolute; top: 180px; left: 105px">
+        <label class="inputs_recibo" id="codigo_input" style="font-weight: bold"
+          >FOR 8.2 COM 11</label
+        >
+      </div>
+      <div style="position: absolute; top: 205px; left: 105px">
+        <label
+          class="inputs_recibo"
+          id="emision_input"
+          style="font-weight: bold"
+          >24/01/06</label
+        >
+      </div>
+      <div style="position: absolute; top: 200px; left: 755px">
+        <label class="inputs_recibo" id="folio_input">Folio</label>
+      </div>
+      <div style="position: absolute; top: 260px; left: 755px">
+        <label class="inputs_recibo" id="fecvencimiento_input"
+          >Fecha de vencimiento</label
+        >
+      </div>
+      <div style="position: absolute; top: 320px; left: 755px">
+        <label class="inputs_recibo" id="totalapagar_input"
+          >total a pagar</label
+        >
+      </div>
+      <div style="position: absolute; top: 380px; left: 755px">
+        <label class="inputs_recibo" id="fechaemi_input"
+          >Fecha de emisión</label
+        >
+      </div>
+      <div style="position: absolute; top: 440px; left: 755px">
+        <label class="inputs_recibo" id="periodo_input"
+          >Periodo de consumo</label
+        >
+      </div>
+
+      <div style="position: absolute; top: 250px; left: 30px">
+        <div style="column-count: 1">
+          <label style="font-weight: bold"
+            >NO. DE CONTRATO
+            <label
+              class="inputs_recibo_usuario"
+              id="contrato_input"
+              style="font-weight: bold"></label
+          ></label>
+
+          <label style="margin-left: 10px"
+            >TARIFA
+            <label class="inputs_recibo_usuario" id="tarifa_input"></label
+          ></label>
+        </div>
+      </div>
+      <div style="position: absolute; top: 290px; left: 68px">
+        <div style="column-count: 1">
+          <label style="margin-left: 40px"
+            >SERVICIO
+            <label
+              class="inputs_recibo_usuario"
+              id="servicio_input"
+              style="height: 50px"></label
+          ></label>
+          <label style="margin-left: 23px"
+            >GIRO
+            <label
+              class="inputs_recibo_usuario"
+              id="giro_input"
+              style="height: 50px"></label
+          ></label>
+        </div>
+      </div>
+      <div style="position: absolute; top: 345px; left: 60px">
+        <div style="column-count: 1">
+          <label style="margin-left: 49px"
+            >USUARIO
+            <label
+              class="inputs_recibo_usuario_datos"
+              id="usuario_input"></label
+          ></label>
+        </div>
+      </div>
+      <div style="position: absolute; top: 380px; left: 60px">
+        <label style="margin-left: 35px"
+          >DOMICILIO
+          <label
+            class="inputs_recibo_usuario_datos"
+            id="domicilio_input"></label
+        ></label>
+      </div>
+      <div style="position: absolute; top: 415px; left: 60px">
+        <label style="margin-left: 90px"
+          >RFC <label class="inputs_recibo_usuario" id="rfc_input"></label
+        ></label>
+      </div>
+      <div style="position: absolute; top: 450px; left: 61px">
+        <label style="margin-left: 31px"
+          >UBICACION
+          <label class="inputs_recibo_usuario" id="ubicacion_input"></label
+        ></label>
+      </div>
+      <div style="position: absolute; top: 540px; left: 60px">
+        <label class="inputs_recibo1" id="lec_inicial_input">000</label>
+      </div>
+      <div style="position: absolute; top: 540px; left: 150px">
+        <label class="inputs_recibo1" id="lec_final_input">000</label>
+      </div>
+      <div style="position: absolute; top: 540px; left: 250px">
+        <label class="inputs_recibo1" id="consumom3_input">000</label>
+      </div>
+      <div style="position: absolute; top: 580px; left: 170px">
+        <label class="inputs_recibo1" id="medidor_input"></label>
+      </div>
+      <div style="position: absolute; top: 670px; left: 90px">
+        <label
+          >Gastos de Ejecución $
+          <label class="inputs_recibo1" id="gejec_input"></label
+        ></label>
+      </div>
+      <div style="position: absolute; top: 690px; left: 90px">
+        <label style="margin-left: 70px"
+          >Recargos $ <label class="inputs_recibo1" id="recargos_input"></label
+        ></label>
+      </div>
+      <div style="position: absolute; top: 710px; left: 75px">
+        <label
+          >Saldo anterior vencido $
+          <label class="inputs_recibo1" id="saldoant_input">00</label></label
+        >
+      </div>
+      <div style="position: absolute; top: 758px; left: 180px">
+        <label class="inputs_recibo1" id="mes_adeudo_chiquito">00</label>
+      </div>
+      <div style="position: absolute; top: 530px; left: 420px">
+        <label
+          >SERVICIO DE AGUA POTABLE<label
+            class="inputs_recibo1"
+            id="serv_agua_input"
+            style="margin-left: 195px"></label
+        ></label>
+      </div>
+      <div style="position: absolute; top: 550px; left: 420px">
+        <label
+          >SERVICIO DE ALCANTARILLADO<label
+            class="inputs_recibo1"
+            id="serv_alcan_input"
+            style="margin-left: 170px"></label
+        ></label>
+      </div>
+      <div style="position: absolute; top: 570px; left: 420px">
+        <label
+          >SERVICIO DE SANEAMIENTO<label
+            class="inputs_recibo1"
+            id="serv_sane_input"
+            style="margin-left: 200px"></label
+        ></label>
+      </div>
+      <div style="position: absolute; top: 600px; left: 730px">
+        <label
+          >Subtotal<label
+            class="inputs_recibo1"
+            id="subtotal1_input"
+            style="margin-left: 35px; width: 100px"></label
+        ></label>
+      </div>
+      <label
+        style="
+          position: absolute;
+          top: 650px;
+          left: 420px;
+          text-align: center;
+          background-color: rgb(119, 115, 115);
+          color: black;
+          width: 365px;
+          box-sizing: border-box;
+          vertical-align: middle;
+          align-items: center;
+          text-align: center;
+          height: 30px;
+        ">
+        Otros Conceptos
+      </label>
+      <div style="position: absolute; top: 680px; left: 419px">
+        <label
+          >CRUZ ROJA/BOMBEROS (VOLUNTARIO)
+          <label
+            class="inputs_recibo1"
+            id="subtotal_input"
+            style="margin-left: 118px"
+            >00</label
+          >
+        </label>
+      </div>
+      <div style="position: absolute; top: 705px; left: 619px">
+        <label
+          >Otros cargos
+          <label
+            class="inputs_recibo1"
+            id="otros_cargos_input"
+            style="margin-left: 129px"></label>
+        </label>
+      </div>
+      <div
+        style="position: absolute; top: 785px; left: 320px; text-align: center">
+        <label
+          style="font-size: 24px; font-weight: bold; color: black; width: 365px"
+          id="meses_deadeudogrande"
+          >00
+        </label>
+      </div>
+      <div style="position: absolute; top: 740px; left: 730px">
+        <label
+          >Subtotal<label
+            class="inputs_recibo1"
+            id="subtotal2_input"
+            style="margin-left: 35px; width: 100px"></label
+        ></label>
+      </div>
+      <div style="position: absolute; top: 765px; left: 710px">
+        <label
+          >REZAGOS
+          <label
+            class="inputs_recibo1"
+            type="text"
+            id="rezagos_input"
+            style="margin-left: 15px; width: 150px"></label>
+        </label>
+      </div>
+      <div style="position: absolute; top: 785px; left: 663px">
+        <label
+          >TOTAL A PAGAR
+          <label
+            class="inputs_recibo1"
+            id="total_pagar_input"
+            style="margin-left: 15px; width: 150px"></label>
+        </label>
+      </div>
+      <div
+        style="
+          position: absolute;
+          top: 790px;
+          left: 80px;
+          width: 250px;
+          height: 100px;
+        ">
+        <p
+          style="
+            font-size: 10px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+              sans-serif;
+            text-align: justify;
+          ">
+          Estimado Usuario: De conformidad con lo dispuesto por los artículos
+          28, 123,151,152,170,179,182 y 205, de la Ley de Aguas para el Estado
+          de Durango; 125 de la Ley de Hacienda para los Municipios del Estado;
+          33 fracción VI, inciso j, y 54 del Reglamento Interno de Aguas del
+          Municipio de Durango y; 2 y 3 del Acuerdo de Creación del Organismo
+          Público Descentralizado Aguas del Municipio de Durango, se le recuerda
+          que es obligación de los usuarios pagar puntualmente su recibo, de lo
+          contrario, se ordenará la suspensión de los servicios en el domicilio
+          indicado al rubro. Así mismo, se le recuerda que conjuntamente con las
+          leyes y reglamentos aplicables, las clausulas Segunda, Tercera y
+          Cuarta del Contrato celebrado por los usuarios con AMD, le obligan a
+          efectuar el pago mensualmente,, por lo que en caso de no hacerlo,
+          aplicaremos los recargos correspondientes según lo establecido en los
+          artículos 55 del Código Fiscal Municipal; 34 y 41 de la Ley de Aguas
+          para el Estado de Durango y el numeral 2 del Anexo “B” del artículo 73
+          de la Ley de Ingresos del Municipio de Durango para el ejercicio
+          fiscal 2014. >
+        </p>
+        <p
+          style="
+            font-size: 10px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+              sans-serif;
+            text-align: center;
+            margin-top: 10px;
+          ">
+          ATENTAMENTE
+        </p>
+        <p
+          style="
+            font-size: 10px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+              sans-serif;
+            text-align: center;
+            margin-top: 10px;
+          ">
+          Ing. Rodolfo Corrujedo Carrillo DIRECTOR GENERAL DE AGUAS DEL
+          MUNICIPIO DE DURANGO
+        </p>
+      </div>
+    </div>
+    <div
+      class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn"
+      style="margin-bottom: 20px">
+      <button
+        id="create_pdf"
+        class="btn display-4"
+        style="background-color: rgb(14, 16, 97); color: white">
+        <span
+          class="mobi-mbri mobi-mbri-info mbr-iconfont mbr-iconfont-btn"></span
+        >Descargar recibo en PDF
+      </button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script>
+      const { jsPDF } = window.jspdf;
+
+      document
+        .getElementById("create_pdf")
+        .addEventListener("click", function () {
+          const element = document.getElementById("capture");
+
+          html2canvas(element, {
+            scale: 2,
+            useCORS: true,
+            backgroundColor: null,
+          }).then((canvas) => {
+            const imgData = canvas.toDataURL("image/png");
+
+            // Crear PDF tamaño A4 en mm (210 x 297)
+            const pdf = new jsPDF({
+              orientation: "portrait",
+              unit: "mm",
+              format: "a4",
+            });
+
+            // Obtener medidas de la imagen renderizada en mm
+            const imgProps = pdf.getImageProperties(imgData);
+            const pdfWidth = 210;
+            const pdfHeight = 297;
+            const imgWidth = pdfWidth;
+            const imgHeight = (imgProps.height * imgWidth) / imgProps.width;
+
+            const marginY = (pdfHeight - imgHeight) / 2;
+
+            // Agregar la imagen centrada verticalmente
+            pdf.addImage(imgData, "PNG", 0, marginY, imgWidth, imgHeight);
+            pdf.save("recibo.pdf");
+          });
+        });
+    </script>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="generator" content="Mobirise v5.9.13, mobirise.com" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <meta
+      name="google-signin-client_id"
+      content="23672300804-433bj6ip1aevjh3tmmiobcied7n4sro6.apps.googleusercontent.com" />
+    <link
+      rel="shortcut icon"
+      href="assets/images/escudo-de-armasfavicon-96x117.png"
+      type="image/x-icon" />
+    <meta
+      name="description"
+      content="Regístrate y crea una cuenta personal en el sitio oficial de Aguas del Municipio de Durango" />
+
+    <title>Aguas del Municipio de Durango - Pago en linea</title>
+    <link
+      rel="stylesheet"
+      href="assets/web/assets/mobirise-icons2/mobirise2.css" />
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css" />
+    <link
+      rel="stylesheet"
+      href="assets/bootstrap/css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="assets/dropdown/css/style.css" />
+    <link rel="stylesheet" href="assets/socicon/css/styles.css" />
+    <link rel="stylesheet" href="assets/theme/css/style.css" />
+
+    <link
+      rel="preload"
+      as="style"
+      href="assets/mobirise/css/mbr-additional.css?v=DqfwOm" />
+    <link
+      rel="stylesheet"
+      href="assets/mobirise/css/mbr-additional.css?v=DqfwOm"
+      type="text/css" />
+  </head>
+  <body>
+    <section
+      data-bs-version="5.1"
+      class="menu menu1 cid-uEvJ1b0cDa"
+      once="menu"
+      id="menu01-5">
+      <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+        <div class="container-fluid">
+          <div class="navbar-brand">
+            <span class="navbar-logo">
+              <a href="index.html">
+                <img
+                  src="assets/images/escudo-de-armasfavicon-96x117.png"
+                  alt="Mobirise Website Builder"
+                  style="height: 3.7rem" />
+              </a>
+            </span>
+            <span class="navbar-caption-wrap"
+              ><a class="navbar-caption text-black display-7" href="index.html"
+                >Aguas del Municipio de Durango</a
+              ></span
+            >
+          </div>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-bs-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <div class="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+              <li class="nav-item">
+                <a
+                  class="nav-link link show text-black display-4"
+                  href="index.html#features013-3"
+                  aria-expanded="false"
+                  >Servicios en Línea</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link link show text-black display-4"
+                  href="servicios.html"
+                  >Trámites y Servicios</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link link text-black display-4"
+                  href="aviso-de-privacidad.html"
+                  >Legalidad</a
+                >
+              </li>
+            </ul>
+            <div style="display: flex; flex-direction: row; position: relative">
+              <img
+                id="user-picture"
+                style="
+                  width: 50px;
+                  height: 50px;
+                  border-radius: 50%;
+                  object-fit: cover;
+                  border: 4px solid rgb(59, 117, 224);
+                  margin-top: 20px;
+                " />
+
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  position: relative;
+                  margin-top: 5px;
+                ">
+                <p>
+                  <span
+                    id="user-name"
+                    style="
+                      margin-left: 20px;
+                      color: rgb(7, 7, 94);
+                      font-size: 20px;
+                      font-weight: bold;
+                      font-family: 'Gill Sans', 'Gill Sans MT', Calibri,
+                        'Trebuchet MS', sans-serif;
+                      font-size: 14px;
+                    "></span>
+                </p>
+
+                <p>
+                  <span
+                    id="user-email"
+                    style="
+                      margin-left: 20px;
+                      font-weight: bold;
+                      font-family: 'Gill Sans', 'Gill Sans MT', Calibri,
+                        'Trebuchet MS', sans-serif;
+                      font-size: 14px;
+                    "></span>
+                </p>
+                <a href="index.html"
+                  ><button
+                    id="cerrarSesion"
+                    type="submit"
+                    onclick="signOut()"
+                    style="
+                      margin-left: 20px;
+                      width: 150px;
+                      height: 25px;
+                      background-color: rgb(14, 16, 97);
+                      color: white;
+                      border-radius: 20%;
+                    ">
+                    Cerrar sesion
+                  </button></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </section>
+
+    <section
+      data-bs-version="5.1"
+      class="footer1 elevatem5 cid-uEvJ1IfENc"
+      once="footers"
+      id="footer1-6">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-4 card">
+            <div class="content-wrapper">
+              <div class="title-wrapper">
+                <div class="title-wrap">
+                  <h2 class="mbr-section-title mbr-fonts-style display-5">
+                    <strong>Aguas del Municipio de Durango</strong>
+                  </h2>
+                </div>
+              </div>
+              <p class="copyright mbr-fonts-style display-4">
+                Aquatel: (618) 1500 600<br /><br /><br />
+              </p>
+            </div>
+            <div class="social-wrapper">
+              <div class="social-wrap">
+                <a
+                  href="https://www.facebook.com/AMDurango/?locale=es_LA"
+                  target="_blank"
+                  ><span class="mbr-iconfont socicon-facebook socicon"></span
+                ></a>
+                <a href="https://twitter.com/AMD_Durango" target="_blank"
+                  ><span class="mbr-iconfont socicon-twitter socicon"></span
+                ></a>
+                <a
+                  href="https://api.whatsapp.com/send?phone=526181002021&text=Buen%20dia"
+                  target="_blank"
+                  ><span class="mbr-iconfont socicon-whatsapp socicon"></span
+                ></a>
+                <a href="https://www.instagram.com/amd_durango/" target="_blank"
+                  ><span class="mbr-iconfont socicon-instagram socicon"></span
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-2 col-md-6">
+            <div class="list-wrapper">
+              <h4 class="mbr-card-title mbr-fonts-style display-5">
+                <strong> Trámites y Servicios</strong>
+              </h4>
+              <ul class="list mbr-fonts-style display-4">
+                <li class="item-wrap">
+                  <a
+                    href="http://187.191.95.55/FacturacionRegistro/index.html"
+                    class="text-white"
+                    target="_blank"
+                    >Facturación</a
+                  ><br />
+                </li>
+                <li class="item-wrap">
+                  <a
+                    href="http://187.191.95.55/ReciboMail/index.html"
+                    class="text-white"
+                    target="_blank"
+                    >Recibo en línea
+                  </a>
+                </li>
+                <li class="item-wrap">
+                  <a href="servicios.html" class="text-white"
+                    >Instalación de medidor
+                  </a>
+                </li>
+                <li class="item-wrap">
+                  <a href="servicios.html" class="text-white"
+                    >Contratación de servicios de agua</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-lg-2 col-md-6">
+            <div class="list-wrapper">
+              <h4 class="mbr-card-title mbr-fonts-style display-5">
+                <strong> Servicios en Línea</strong>
+              </h4>
+              <ul class="list mbr-fonts-style display-4">
+                <li class="item-wrap">
+                  <a
+                    href="http://187.191.95.55/pagosamd/comercio.html"
+                    class="text-white"
+                    target="_blank"
+                    >Pagos</a
+                  >
+                </li>
+                <li class="item-wrap">Reportes</li>
+                <li class="item-wrap">
+                  <a
+                    href="http://187.191.95.55/Duplicadosprueba/index.html"
+                    class="text-white"
+                    target="_blank"
+                    >Duplicados</a
+                  >
+                </li>
+                <li class="item-wrap">
+                  <a
+                    href="http://187.191.95.55/ReciboMail/index.html"
+                    class="text-white"
+                    target="_blank"
+                    >Estados de cuenta
+                  </a>
+                </li>
+                <li class="item-wrap">
+                  <a
+                    href="http://187.191.95.55/transparencia/index.html"
+                    class="text-white"
+                    target="_blank"
+                    >Hipervínculos</a
+                  >
+                </li>
+                <li class="item-wrap">
+                  <a
+                    href="http://187.191.95.55/nomina/"
+                    class="text-white"
+                    target="_blank"
+                    >Acceso personal AMD</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-lg-2 col-md-6">
+            <div class="list-wrapper">
+              <h4 class="mbr-card-title mbr-fonts-style display-5">
+                <strong> Información</strong><strong><br /></strong>
+              </h4>
+              <ul class="list mbr-fonts-style display-4">
+                <li class="item-wrap">
+                  <a
+                    href="assets/files/Programa-AnualPROAGUA.pdf"
+                    class="text-white"
+                    target="_blank"
+                    >Programa Anual de Obras
+                  </a>
+                </li>
+                <li class="item-wrap">
+                  <a
+                    href="assets/files/TARIFAS--AMD-2024-WNG.pdf"
+                    class="text-white text-primary"
+                    target="_blank"
+                    >Tarifas</a
+                  >
+                </li>
+                <li class="item-wrap">
+                  <a href="aviso-de-privacidad.html" class="text-white"
+                    >Aviso de Privacidad
+                  </a>
+                </li>
+                <li class="item-wrap">
+                  <a href="informacion-financiera.html" class="text-white"
+                    >Información Financiera</a
+                  >
+                </li>
+                <li class="item-wrap">
+                  <a
+                    href="EvaluacionyCalidad.html#header2-2s"
+                    class="text-white text-primary"
+                    >Evaluación y Calidad</a
+                  >
+                </li>
+                <li class="item-wrap">
+                  <a href="transparencia.html" class="text-white"
+                    >Transparencia</a
+                  >
+                </li>
+                <li class="item-wrap">
+                  <a href="rifa.html" class="text-white"
+                    >Contraloría&nbsp;Interna</a
+                  >
+                </li>
+                <li class="item-wrap"><br /></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="callback_looby.js"></script>
+    <script src="callback.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="duplicado_calls.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/smoothscroll/smooth-scroll.js"></script>
+    <script src="assets/ytplayer/index.js"></script>
+    <script src="assets/dropdown/js/navbar-dropdown.js"></script>
+    <script src="assets/theme/js/script.js"></script>
+    <script src="assets/formoid/formoid.min.js"></script>
+  </body>
+</html>
